@@ -1,0 +1,32 @@
+# 🧠 AI Chat Backend with LangChain, FAISS, and Ollama
+
+This is a simple backend for a local document-based question-answering (QA) system using:
+
+- [LangChain](https://www.langchain.com/)
+- [FAISS](https://github.com/facebookresearch/faiss) for vector storage
+- [Hugging Face Sentence Transformers](https://www.sbert.net/)
+- [Ollama](https://ollama.com) for running LLMs locally (e.g. Mistral)
+- [FastAPI](https://fastapi.tiangolo.com/) for serving the QA system via HTTP API
+
+---
+
+## 🚀 Features
+
+- Load and index Markdown documents from a `docs/` folder
+- Chunk documents for better context retrieval
+- Generate and store embeddings using `sentence-transformers/all-MiniLM-L6-v2`
+- Use a local Ollama LLM (e.g. `mistral`) for generating answers
+- Query documents via an HTTP endpoint (`/ask`)
+
+---
+
+## 📁 Project Structure
+
+```bash
+.
+├── ingest_docs.py       # One-time script to index markdown docs
+├── main.py              # FastAPI backend
+├── requirements.txt     # Python dependencies
+├── .gitignore
+├── vectorstore/         # FAISS vector database (created after running ingest)
+└── docs/                # Markdown documents to be indexed
